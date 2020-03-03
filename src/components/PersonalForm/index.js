@@ -26,6 +26,7 @@ function PersonalForm(props) {
       {
         Object.keys(personal.form).map((key) => (
           <FieldGroup
+            key={personal.form[key].name}
             label={personal.form[key].label}
             name={personal.form[key].name}
             type={personal.form[key].type}

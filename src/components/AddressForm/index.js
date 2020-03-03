@@ -25,6 +25,7 @@ function AddressForm(props) {
       {
         Object.keys(address.form).map((key) => (
           <FieldGroup
+            key={address.form[key].name}
             label={address.form[key].label}
             name={address.form[key].name}
             type={address.form[key].type}
