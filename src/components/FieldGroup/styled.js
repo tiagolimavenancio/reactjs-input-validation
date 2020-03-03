@@ -12,7 +12,7 @@ export const Label = styled.label`
 
 
 export const Input = styled.input`
-    border: 1px solid ${props => props.error ? '#ff0000' : '#fff'};
+    border: 1px solid ${props => props.errors[props.name] ? '#ff0000' : '#fff'};
     border-radius: 10px;
     padding: 10px;    
     width: 300px;
