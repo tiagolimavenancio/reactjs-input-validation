@@ -8,6 +8,11 @@ export const Container = styled.div`
 `;
 
 export const SubmitButton = styled.button`
-    margin: 5px;
-    padding: 10px;
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    background: royalblue;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 2px solid royalblue;
+    color: white;
 `;
