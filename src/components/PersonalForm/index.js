@@ -11,9 +11,7 @@ function PersonalForm(props) {
 
   const { personal } = props;
 
-  useEffect(() => {
-    console.log('PersonalForm');
-  }, [props.personal])
+  console.log('PersonalForm');
 
   function handleChange(event) {
     const { name, value } = event.target;

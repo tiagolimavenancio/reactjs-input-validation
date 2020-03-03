@@ -10,9 +10,7 @@ import FieldGroup from "../FieldGroup";
 function AddressForm(props) {
   const { address } = props;
 
-  useEffect(() => {
-    console.log('AddressForm');    
-  }, [props.address])
+  console.log('AddressForm');
 
   function handleChange(event) {
     const { name, value } = event.target;
