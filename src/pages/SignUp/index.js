@@ -7,6 +7,8 @@ import * as StepsActions from '../../store/ducks/Steps/actions';
 import * as PersonalActions from '../../store/ducks/Personal/actions';
 import * as AddressActions from '../../store/ducks/Address/actions';
 
+import FormUtils from '../../utils/FormUtils';
+
 import {
     Container,
     SectionButtons,
@@ -27,14 +29,14 @@ function SignUp(props) {
         props.previous();
     }
 
-    function onNextButton() {           
+    function renderNextButton() {           
         if(steps.index < steps.pages.length-1) 
             return <NextButton onClick={onNext}>Next</NextButton> 
                    
         return null;
     }
 
-    function onPreviousButton() {                
+    function renderPreviousButton() {                
         if(steps.index !== steps.first) 
             return <PreviousButton onClick={onPrevious}>Previous</PreviousButton>            
                 
@@ -45,13 +47,13 @@ function SignUp(props) {
         switch (steps.index) {
             case 0: {                                
                 props.onSubmitPersonal(personal.form);                                  
-                const isValid = Object.keys(personal.errors).length && Object.keys(personal.errors).every((key) => personal.errors[key].isValid)                
+                const isValid = FormUtils.validator(personal.errors);                             
                 isValid && props.next();                                             
                 break;
             }
             case 1: {
                 props.onSubmitAddress(address.form);
-                const isValid = Object.keys(address.errors).length && Object.keys(address.errors).every((key) => address.errors[key].isValid)                           
+                const isValid = FormUtils.validator(address.errors);                
                 isValid && props.next();               
                 break;
             }
@@ -67,8 +69,8 @@ function SignUp(props) {
         <Container>
             { steps.pages[steps.index].component }           
             <SectionButtons>
-                { onPreviousButton() }
-                { onNextButton() }  
+                { renderPreviousButton() }
+                { renderNextButton() }  
             </SectionButtons>          
         </Container>
     );

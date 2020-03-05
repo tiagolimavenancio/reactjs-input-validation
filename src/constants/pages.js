@@ -5,9 +5,9 @@ import AddressForm from '../components/AddressForm';
 import Success from '../components/Success';
 
 const pages = [
-    { title: 'User Form', component: <PersonalForm />, next: () => {} },
-    { title: 'Address Form', component: <AddressForm />, previous: () => {}, next: () => {}},
-    { title: 'Successfully', component: <Success />, previous: () => {}},
+    { title: 'User Form', component: <PersonalForm /> },
+    { title: 'Address Form', component: <AddressForm /> },
+    { title: 'Successfully', component: <Success /> },
 ]
 
 export default pages;
