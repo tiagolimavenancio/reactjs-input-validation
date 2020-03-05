@@ -3,11 +3,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as StepsActions from '../../store/ducks/Steps/actions';
-import * as PersonalActions from '../../store/ducks/Personal/actions';
-import * as AddressActions from '../../store/ducks/Address/actions';
+import * as StepsActions from '@/store/ducks/Steps/actions';
+import * as PersonalActions from '@/store/ducks/Personal/actions';
+import * as AddressActions from '@/store/ducks/Address/actions';
 
-import FormUtils from '../../utils/FormUtils';
+import FormUtils from '@/utils/FormUtils';
 
 import {
     Container,
@@ -56,9 +56,7 @@ function SignUp(props) {
                 const isValid = FormUtils.validator(address.errors);                
                 isValid && props.next();               
                 break;
-            }
-            case 2:
-                break;            
+            }            
             default:
                 return null;
         }        

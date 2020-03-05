@@ -1,5 +1,4 @@
-import pages from '../../../constants/pages';
-import Validates from '../../../utils/Validates';
+import pages from '@/constants/pages';
 
 const initialState = {    
     first: 0,

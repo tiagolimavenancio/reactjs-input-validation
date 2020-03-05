@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PersonalForm from '../components/PersonalForm';
-import AddressForm from '../components/AddressForm';
-import Success from '../components/Success';
+import PersonalForm from '@/components/PersonalForm';
+import AddressForm from '@/components/AddressForm';
+import Success from '@/components/Success';
 
 const pages = [
     { title: 'User Form', component: <PersonalForm /> },

@@ -1,4 +1,4 @@
-import Validates from '../../../utils/Validates'
+import Validates from '@/utils/Validates'
 
 const initialState = {
     form: {

@@ -1,16 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as AddressActions from "../../store/ducks/Address/actions";
+import * as AddressActions from "@/store/ducks/Address/actions";
 
 import { Form } from "./styled";
 import FieldGroup from "../FieldGroup";
 
 function AddressForm(props) {
   const { address, steps } = props;
-
-  // console.log('AddressForm');
 
   function handleChange(event) {
     const { name, value } = event.target;
