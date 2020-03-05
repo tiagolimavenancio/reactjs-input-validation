@@ -8,9 +8,9 @@ import { Form } from "./styled";
 import FieldGroup from "../FieldGroup";
 
 function AddressForm(props) {
-  const { address } = props;
+  const { address, steps } = props;
 
-  console.log('AddressForm');
+  // console.log('AddressForm');
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -19,29 +19,29 @@ function AddressForm(props) {
 
   return (
     <Form>
-      <h3>Address Form</h3>
-      {
-        Object.keys(address.form).map((key) => (
-          <FieldGroup
-            key={address.form[key].name}
-            label={address.form[key].label}
-            name={address.form[key].name}
-            type={address.form[key].type}
-            placeholder={address.form[key].placeholder}
-            value={address.form[key].value}
-            error={address.form[key].error}
-            errors={address.errors}
-            onChange={handleChange}
-          />
-        ))
-      }
-    </Form>
+        <h3>{ steps.pages[steps.index].title }</h3>
+        {
+          Object.keys(address.form).map((key) => (
+            <FieldGroup
+              key={address.form[key].name}
+              label={address.form[key].label}
+              name={address.form[key].name}
+              type={address.form[key].type}
+              placeholder={address.form[key].placeholder}
+              value={address.form[key].value}
+              error={address.form[key].error}
+              errors={address.errors}
+              onChange={handleChange}
+            />
+          ))
+        }
+      </Form>
   );
 }
 
 function mapStateToProps(state) {
-  const { address } = state;
-  return { address };
+  const { address, steps } = state;
+  return { address, steps };
 }
 
 function mapDispatchToProps(dispatch) {

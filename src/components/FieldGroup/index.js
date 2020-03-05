@@ -5,7 +5,7 @@ import {
   Input,
   Label,
   SpanError
-} from './styled';
+} from './styles';
 
 const FieldGroup = (props) => useMemo(() => {  
   return (

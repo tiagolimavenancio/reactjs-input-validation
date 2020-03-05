@@ -66,6 +66,11 @@ class Validates {
                     message = !isValid && 'Please enter a valid CEP';  
                     break;
                 }
+                case 'isNumber': {
+                    isValid = isValid && this.validateNumber(value);
+                    message = !isValid && 'Please enter with a Number';  
+                    break;
+                }
                 default: {
                     isValid = true;                 
                 }

@@ -8,7 +8,6 @@ const initialState = {
             type: 'text',
             placeholder: 'Username',  
             value: '',   
-            message: '',
             rules: {
                 isRequired: true
             }
@@ -19,7 +18,6 @@ const initialState = {
             type: 'email',
             placeholder: 'Email',
             value: '',
-            message: '',
             rules: {
                 isRequired: true,
                 isEmail: true,
@@ -31,7 +29,6 @@ const initialState = {
             type: 'password',
             placeholder: 'Password',  
             value: '', 
-            message: '',
             rules: {
                 isRequired: true,
                 minLength: 6
@@ -42,19 +39,19 @@ const initialState = {
             name: 'confirmPassword',
             type: 'password',
             placeholder: 'Password Confirmation', 
-            value: '',            
-            message: '',
+            value: '',  
             rules: {
                 isRequired: true,
                 minLength: 6
             }
         },        
-    }, 
+    },
     errors: {}
 }
 
 export default (state = initialState, action) => {
     switch (action.type) { 
+        
         case 'PERSONAL_FORM_UPDATE_VALUES': {                           
             return { 
                 ...state,
@@ -62,13 +59,13 @@ export default (state = initialState, action) => {
                     ...state.form,
                     [action.name]: {
                         ...state.form[action.name],
-                        value: action.value,                      
-                        message: Validates.validate(action.value, state.form[action.name].rules).message
+                        value: action.value,
                     },                                       
                 },
                 errors: {
                     ...state.errors,
                     [action.name]: {
+                        isValid: Validates.validate(action.value, state.form[action.name].rules).isValid,
                         message: Validates.validate(action.value, state.form[action.name].rules).message 
                     }
                 } 
@@ -76,7 +73,7 @@ export default (state = initialState, action) => {
         }
 
         case 'SUBMIT_PERSONAL_FORM': {   
-            const validation = Validates.validator(state.form);                        
+            const validation = Validates.validator(action.payload);                        
             return { 
                 ...state,
                 ...state.form, 

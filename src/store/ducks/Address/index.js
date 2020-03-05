@@ -8,7 +8,6 @@ const initialState = {
             type: 'text', 
             placeholder: 'Street', 
             value: '',   
-            message: '',
             rules: {
                 isRequired: true
             }
@@ -19,7 +18,6 @@ const initialState = {
             type: 'text', 
             placeholder: 'Complement',  
             value: '',   
-            message: '',
             rules: {
                 isRequired: true
             }
@@ -30,9 +28,8 @@ const initialState = {
             type: 'number', 
             placeholder: 'Number',  
             value: '',   
-            message: '',
-            rules: {
-                isRequired: true                
+            rules: {               
+                isRequired: true
             }
         },
         neighborhood: {
@@ -41,7 +38,6 @@ const initialState = {
             type: 'text', 
             placeholder: 'Neighborhood',  
             value: '',   
-            message: '',
             rules: {
                 isRequired: true
             }
@@ -71,13 +67,13 @@ export default (state = initialState, action) => {
                     ...state.form,
                     [action.name]: {
                         ...state.form[action.name],
-                        value: action.value,                      
-                        message: Validates.validate(action.value, state.form[action.name].rules).message
+                        value: action.value,                                              
                     },                                       
                 },
                 errors: {
                     ...state.errors,
                     [action.name]: {
+                        isValid: Validates.validate(action.value, state.form[action.name].rules).isValid,
                         message: Validates.validate(action.value, state.form[action.name].rules).message 
                     }
                 }               
