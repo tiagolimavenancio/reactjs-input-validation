@@ -61,8 +61,7 @@ function SignUp(props) {
                 break;            
             default:
                 return null;
-        }
-        
+        }        
     }
    
     return (
