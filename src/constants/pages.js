@@ -2,11 +2,13 @@ import React from 'react';
 
 import PersonalForm from '@/components/PersonalForm';
 import AddressForm from '@/components/AddressForm';
+import DetailsForm from '@/components/DetailsForm';
 import Success from '@/components/Success';
 
 const pages = [
     { title: 'User Form', component: <PersonalForm /> },
     { title: 'Address Form', component: <AddressForm /> },
+    { title: 'Details Form', component: <DetailsForm /> },
     { title: 'Successfully', component: <Success /> },
 ]
 
