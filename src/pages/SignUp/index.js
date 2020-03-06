@@ -46,19 +46,15 @@ function SignUp(props) {
     function onSubmit() {
         switch (steps.index) {
             case 0: {                                
-                // props.onSubmitPersonal(personal.form);                                  
-                // const isValid = FormUtils.validator(personal.errors);                             
-                // isValid && props.next();               
-                
-                props.next();                                             
+                props.onSubmitPersonal(personal.form);                                  
+                const isValid = FormUtils.validator(personal.errors);                             
+                isValid && props.next();                                
                 break;
             }
             case 1: {
-                // props.onSubmitAddress(address.form);
-                // const isValid = FormUtils.validator(address.errors);                
-                // isValid && props.next();               
-                
-                props.next();               
+                props.onSubmitAddress(address.form);
+                const isValid = FormUtils.validator(address.errors);                
+                isValid && props.next();    
                 break;
             }
             case 2: {
